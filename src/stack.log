@@ -1,0 +1,33 @@
+1> c(stack).
+{ok,stack}
+2> stack:createS().
+{}
+3> Stack = stack:push({1,{2,{}}},0).
+{0,{1,{2,{}}}}
+4> stack:pop(Stack).
+{1,{2,{}}}
+5> stack:push({},1).
+{1,{}}
+6> stack:pop({1,{}}).
+{}
+7> stack:pop({}).
+delete is failed!
+{}
+8> stack:isEmptyS({}).
+true
+9> stack:isEmptyS({1,{}}).
+false
+10> Stack1 = {1,{2,{}}}.
+{1,{2,{}}}
+11> Stack2 = {1,{2,{}}}.
+{1,{2,{}}}
+12> stack:equalS(Stack1,Stack2).
+true
+13> stack:equalS(Stack1,{2,{1,{}}}).
+false
+14> stack:reverseS({1,{2,{3,{}}}}).
+{3,{2,{1,{}}}}
+15> stack:reverseS({1,{}}).
+{1,{}}
+16> stack:reverseS({}).
+{}
