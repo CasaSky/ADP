@@ -1,0 +1,5 @@
+2017-04-09 22:12:48,885 WARN  [DefaultSoapUICore] Missing folder [/home/talal/ext] for external libraries
+2017-04-09 22:12:49,231 INFO  [DefaultSoapUICore] initialized soapui-settings from [/home/talal/soapui-settings.xml]
+2017-04-09 22:12:50,356 INFO  [WorkspaceImpl] Loading workspace from [/home/talal/intellij-soapui-workspace.xml]
+2017-04-09 23:04:54,532 INFO  [WorkspaceImpl] Saved workspace to [/home/talal/intellij-soapui-workspace.xml]
+2017-04-09 23:04:54,535 INFO  [DefaultSoapUICore] Settings saved to [/home/talal/soapui-settings.xml]
