@@ -42,7 +42,6 @@ dequeue({InStack,OutStack}) ->
 %isEmptyQ: queue -> bool
 isEmptyQ({InStack,OutStack}) -> stack:isEmptyS(InStack) and stack:isEmptyS(OutStack).
 
-%equalQ: queue x queue -> bool todo evt. mittels Stack equal loesen
-equalQ({InStack1,OutStack1},{InStack1,OutStack1}) -> true;
-equalQ({{},{}},{{},{}}) -> true;
-equalQ({_,_},{_,_}) -> false.
+%equalQ: queue x queue -> bool
+equalQ({InStack1,Oustack1},{InStack2,Outstack2}) -> NewOutstack1 = umstapeln(InStack1,Oustack1), NewOutstack2 = umstapeln(InStack2,Outstack2),
+  stack:equalS(stack:reverseS(NewOutstack1),stack:reverseS(NewOutstack2)).

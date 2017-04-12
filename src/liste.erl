@@ -16,12 +16,10 @@
 create() -> {}.
 
 %isEmpty: List -> Bool
-isEmpty({}) -> true;
-isEmpty(_) -> false.
+isEmpty(List) -> equal(List,{}).
 
-%laenge: List -> Int
-equal(List,List) -> true;
-equal(_,_) -> false.
+%equal: List,List -> Bool
+equal(List1,List2) -> {Head1,Tail1} = List1, {Head2,Tail2} = List2, Head1==Head2 and equal(Tail1,Tail2).
 
 %laenge: List -> Int
 laenge(List) -> laenge_(List).
@@ -82,10 +80,10 @@ getDiffList(Head,Tail,List2) ->  Pos = find(List2,Head),
   end.
 
 %eoCount: List -> [int, int]
-eoCount(List) -> eoCount(List,List,[0,0]).
-eoCount(_,{},[Gerade,Ungerade]) -> [Gerade+1,Ungerade];
-eoCount(List,{_,Tail},[Gerade,Ungerade]) -> L=laenge(List),
-  if L rem 2 == 1 -> Result = [Gerade,Ungerade+1] , eoCount(Tail,Tail,Result);
-     true       -> Result = [Gerade+1,Ungerade], eoCount(Tail,Tail,Result)
+eoCount(List) -> eoCount(List,{0,0}).
+eoCount({},{Gerade,Ungerade}) -> {Gerade+1,Ungerade};
+eoCount(List,{Gerade,Ungerade}) -> L=laenge(List), {_,Tail} = List,
+  if L rem 2 == 1 -> Result = {Gerade,Ungerade+1} , eoCount(Tail,Result);
+    true       -> Result = {Gerade+1,Ungerade}, eoCount(Tail,Result)
   end;
-eoCount(_,_,_) -> io:fwrite("eoCount is failed!~n"), null.
+eoCount(_,Result) -> Result.

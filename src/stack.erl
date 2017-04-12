@@ -32,7 +32,10 @@ isEmptyS(Stack) -> liste:isEmpty(Stack).
 equalS(Stack1,Stack2) -> liste:equal(Stack1, Stack2).
 
 %reverseS: stack -> stack
-reverseS(Stack) -> reverseS_(Stack,liste:laenge(Stack)).
-reverseS_({},_) -> {};
-reverseS_(Stack,1) -> {liste:retrieve(Stack,1),{}};
+reverseS(Stack) ->
+  case isEmptyS(Stack) of
+    true -> createS();
+    false -> reverseS_(Stack,liste:laenge(Stack))
+  end.
+reverseS_(Stack,1) -> {liste:retrieve(Stack,1),createS()};
 reverseS_(Stack,Accu) -> {liste:retrieve(Stack,Accu), reverseS_(Stack,Accu-1)}.
