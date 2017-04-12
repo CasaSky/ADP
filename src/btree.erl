@@ -17,27 +17,32 @@ initBT() -> {}.
 
 %isBT btree -> bool
 isBT(Btree) -> isBT(Btree, 1).
+
+%Leerer btree
 isBT({},_) -> true;
+%Der erste Knoten im Btree muss die Hoehe 1 haben
 isBT({_,1,{},{}},1) -> true;
+%Wenn ein Btree keine Teilbaeume hat (Blatt oder ein Btree mit nur einem Knoten)
 isBT({_,Hoehe,{},{}},Hoehe) -> true;
-isBT({Elem,Accu,LinkBtree,{}},Accu) ->
-  case getElem(LinkBtree) < Elem  of
-    true  -> isBT(LinkBtree,Accu+1);
-    false -> false
-  end;
-isBT({Elem,Accu,{},RechtBtree},Accu) ->
-  case getElem(RechtBtree) > Elem of
-    true  -> isBT(RechtBtree,Accu+1);
-    false -> false
-  end;
-isBT({Elem,Accu,LinkBtree,RechtBtree},Accu) ->
-  case (getElem(LinkBtree) < Elem) and (getElem(RechtBtree) > Elem) of
-    true  -> isBT(LinkBtree,Accu+1) and
-            isBT(RechtBtree,Accu+1);
-    false -> false
-  end;
+
+%Wenn Btree nur einen Linkenteilbaum hat, wird dies geprueft
+isBT({Elem,Accu,LBtree,{}},Accu) -> isLBT(LBtree,Elem), isBT(LBtree,Accu+1);
+%Wenn Btree nur einen Rechtenteilbaum hat, wird dies geprueft
+isBT({Elem,Accu,{},RBtree},Accu) -> isRBT(RBtree,Elem), isBT(RBtree,Accu+1);
+%Wenn Btree beide Teilbaeume hat, werden beide geprueft
+isBT({Elem,Accu,LBtree,RBtree},Accu) -> isLBT(LBtree), isRBT(RBtree,Elem), isBT(LBtree,Accu+1), isBT(LBtree,Elem), isBT(RBtree,Accu+1);
+%Wenn Btree nicht korrekt ist
 isBT(_,_) -> false.
 
+%Prueft ob die Werteintervalle von LinksBtree korrekt sind
+isLBT({Elem,Accu,_,{}},Accu,Max) -> Elem<Max;
+isLBT({Elem,Accu,_,RBtree},Accu,Max) -> RElem = getElem(RBtree), (Elem<Max) and (RElem<Max).
+
+%Prueft ob die Werteintervalle von RechtsBtree korrekt sind
+isRBT({Elem,Accu,{},_},Accu,Min) -> Elem>Min;
+isRBT({Elem,Accu,LBtree,_},Accu,Min) -> LElem = getElem(LBtree), (Elem<Min) and (LElem<Min).
+
+%Liefert den Knoteninhalt der Wurzel vom gegebenen Btree
 getElem({Elem,_,_,_}) -> Elem.
 
 %insertBT: btree x elem -> btree
