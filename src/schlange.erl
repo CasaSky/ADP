@@ -18,15 +18,15 @@ createQ() -> {}.
 %umstapeln InStack in OutStack entleeren und OutStack zurueck liefern
 umstapeln(InStack,OutStack) ->
   case stack:isEmptyS(InStack) of
-       true  -> OutStack;
-       false -> umstapeln(stack:pop(InStack), stack:push(OutStack, stack:top(InStack)))
+    true  -> OutStack;
+    false -> umstapeln(stack:pop(InStack), stack:push(OutStack, stack:top(InStack)))
   end.
 
 %front: queue -> elem
 front({InStack,OutStack}) ->
   case stack:isEmptyS(OutStack) of
-      true  -> stack:top(umstapeln(InStack, OutStack));
-      false -> stack:top(OutStack)
+    true  -> stack:top(umstapeln(InStack, OutStack));
+    false -> stack:top(OutStack)
   end.
 
 %enqueue: queue x elem -> queue
@@ -45,3 +45,5 @@ isEmptyQ({InStack,OutStack}) -> stack:isEmptyS(InStack) and stack:isEmptyS(OutSt
 %equalQ: queue x queue -> bool
 equalQ({InStack1,Oustack1},{InStack2,Outstack2}) -> NewOutstack1 = umstapeln(InStack1,Oustack1), NewOutstack2 = umstapeln(InStack2,Outstack2),
   stack:equalS(stack:reverseS(NewOutstack1),stack:reverseS(NewOutstack2)).
+%todo
+equalQ2({InStack1,OutStack1},{InStack2,OutStack2}) -> stack:equalS(InStack1,InStack2) and stack:equalS(OutStack1,OutStack2).

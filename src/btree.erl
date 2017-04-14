@@ -18,7 +18,7 @@ initBT() -> {}.
 %isBT btree -> bool
 isBT(Btree) -> case (Btree==initBT()) of
                  true -> true;
-                 false ->{Elem,_,_,_} = Btree, isBT(Btree,Elem+1,Elem-1)
+                 false ->{_,_,_,_} = Btree, isBT(Btree,200,0)
                end.
 
 isBT({_,1,{},{}},_,_) -> true;
@@ -35,14 +35,14 @@ insertBT({KnotenElem,Hoehe,{},RBtree}, Elem) -> {KnotenElem,Hoehe+1,{},insertBT(
 insertBT({KnotenElem,Hoehe,LBtree,{}}, Elem) when KnotenElem < Elem -> {KnotenElem,Hoehe,LBtree,{Elem,1,{},{}}};
 insertBT({KnotenElem,Hoehe,LBtree,{}}, Elem) -> {KnotenElem,Hoehe+1,insertBT(LBtree,Elem),{}};
 
-insertBT({KnotenElem,Hoehe,LBtree,RBtree}, Elem) -> MaxHoehe = maxHoehe(LBtree,RBtree),
-  if KnotenElem > Elem -> {KnotenElem,MaxHoehe+1, insertBT(LBtree,Elem),RBtree};
-    KnotenElem < Elem -> {KnotenElem,MaxHoehe+1, LBtree, insertBT(RBtree,Elem)};
+insertBT({KnotenElem,Hoehe,LBtree,RBtree}, Elem) ->
+  if KnotenElem > Elem -> NewLBtree = insertBT(LBtree,Elem), MaxHoehe = maxHoehe(NewLBtree,RBtree), {KnotenElem,MaxHoehe+1, NewLBtree, RBtree};
+    KnotenElem < Elem -> NewRBtree = insertBT(RBtree,Elem), MaxHoehe = maxHoehe(LBtree,NewRBtree), {KnotenElem,MaxHoehe+1, LBtree, insertBT(NewRBtree,Elem)};
     true -> {KnotenElem,Hoehe,LBtree,RBtree}
   end.
 
 maxHoehe({_,Hoehe1,_,_},{_,Hoehe2,_,_}) -> if Hoehe1>Hoehe2-> Hoehe1;
-                                              true -> Hoehe2
+                                             true -> Hoehe2
                                            end.
 
 %isEmptyBT: btree -> bool
@@ -55,6 +55,3 @@ equalBT(Btree1,Btree2) ->
     false -> {Elem1,Hoehe1,LBtree1,RBtree1} = Btree1, {Elem2,Hoehe2,LBtree2,RBtree2} = Btree2,
       (Elem1==Elem2) and (Hoehe1==Hoehe2) and equalBT(LBtree1,LBtree2) and equalBT(RBtree1,RBtree2)
   end.
-
-
-

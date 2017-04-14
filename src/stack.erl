@@ -37,5 +37,5 @@ reverseS(Stack) ->
     true -> createS();
     false -> reverseS_(Stack,liste:laenge(Stack))
   end.
-reverseS_(Stack,1) -> {liste:retrieve(Stack,1),createS()};
-reverseS_(Stack,Accu) -> {liste:retrieve(Stack,Accu), reverseS_(Stack,Accu-1)}.
+reverseS_(Stack,1) -> push(createS(),liste:retrieve(Stack,1));
+reverseS_(Stack,Accu) -> push(reverseS_(Stack,Accu-1),liste:retrieve(Stack,Accu)).
