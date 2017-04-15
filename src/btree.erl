@@ -12,14 +12,19 @@
 %% API
 -export([initBT/0, isBT/1, insertBT/2, isEmptyBT/1, equalBT/2]).
 
+-define(MAX, 2432902008176640000).
+-define(MIN, -2432902008176640000).
+
 %initBT 0 -> btree
 initBT() -> {}.
 
 %isBT btree -> bool
-isBT(Btree) -> case (Btree==initBT()) of
+isBT(Btree={Elem,_,_,_}) when is_integer(Elem) -> case (Btree==initBT()) of
                  true -> true;
-                 false ->isBT_(Btree,200,0)
-               end.
+                 false ->isBT_(Btree,?MAX,?MIN)
+               end;
+isBT({}) -> true;
+isBT(_) -> false.
 
 isBT_({},_,_) -> true;
 isBT_({Elem,1,{},{}},Min,Max) when is_integer(Elem) and (Elem<Max) and (Elem>Min) -> true;
