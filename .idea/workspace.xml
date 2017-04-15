@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f5d3b6f-ea0b-4397-b126-776f330f2c34" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ADP1Skizze_V7_Team16.pdf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ADP1Skizze_V7_Team16.docx" afterPath="$PROJECT_DIR$/ADP1Skizze_V7_Team16.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -109,7 +111,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="0">
-                <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+                <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -838,7 +840,7 @@
       <workItem from="1492180321877" duration="3064000" />
       <workItem from="1492183602253" duration="35676000" />
       <workItem from="1492220917719" duration="1654000" />
-      <workItem from="1492261095544" duration="9824000" />
+      <workItem from="1492261095544" duration="10253000" />
     </task>
     <servers />
   </component>
@@ -875,10 +877,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162406000" />
+    <option name="totallyTimeSpent" value="162835000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-1" width="1920" height="1080" extended-state="6" />
+    <frame x="1920" y="-1" width="1920" height="1080" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1356,7 +1358,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
-            <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+            <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
             <folding />
           </first_editor>
           <second_editor />
