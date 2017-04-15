@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f5d3b6f-ea0b-4397-b126-776f330f2c34" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/btree.erl" afterPath="$PROJECT_DIR$/src/btree.erl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/btree_test.erl" afterPath="$PROJECT_DIR$/src/btree_test.erl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +48,7 @@
       <file leaf-file-name="liste.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/liste.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
+            <state relative-caret-position="1520">
               <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding />
             </state>
@@ -58,8 +58,8 @@
       <file leaf-file-name="btree.erl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/btree.erl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            <state relative-caret-position="200">
+              <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="btree_test.erl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/btree_test.erl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="138">
+              <caret line="33" column="98" lean-forward="false" selection-start-line="33" selection-start-column="98" selection-end-line="33" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -842,44 +842,45 @@
       <workItem from="1492025322177" duration="13146000" />
       <workItem from="1492180262684" duration="33000" />
       <workItem from="1492180321877" duration="3064000" />
-      <workItem from="1492183602253" duration="35604000" />
+      <workItem from="1492183602253" duration="35676000" />
+      <workItem from="1492220917719" duration="926000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="btree_test - 2017.04.15 at 03h 21m 01s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 55m 54s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 22m 15s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 56m 08s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 23m 06s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 56m 19s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 23m 15s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 56m 32s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 23m 24s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 56m 43s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 23m 51s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 57m 07s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 31m 46s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 57m 16s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 34m 04s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 57m 29s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 34m 24s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 03h 58m 43s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="btree_test - 2017.04.15 at 03h 36m 19s.xml">
+    <history-entry file="btree_test - 2017.04.15 at 04h 03m 52s.xml">
       <configuration name="btree_test" configurationId="ErlangUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150856000" />
+    <option name="totallyTimeSpent" value="151854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-1" width="1920" height="1080" extended-state="6" />
@@ -888,7 +889,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1273,7 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,7 +1282,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1290,7 +1289,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/liste.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
+        <state relative-caret-position="1520">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
@@ -1354,16 +1353,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/btree_test.erl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="138">
+          <caret line="33" column="98" lean-forward="false" selection-start-line="33" selection-start-column="98" selection-end-line="33" selection-end-column="98" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/btree.erl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="200">
+          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding />
         </state>
       </provider>
