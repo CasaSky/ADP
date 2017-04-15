@@ -69,7 +69,10 @@ equalSNegative_test() ->
 %----------------------------------------------------------------------
 reverseSPositive_test() ->
   ?assert(stack:reverseS({}) == {}),
-  ?assert(stack:reverseS({1, {2, {} }}) == {2, {1, {} }}).
+  ?assert(stack:reverseS({1, {2, {} }}) == {2, {1, {} }}),
+  ?assert(stack:reverseS({1, {{a,{b,{}}}, {3, {}} }}) == {3, {{a,{b,{}}}, {1, {} }}}),
+  ?assert(stack:reverseS({1, {2, {{a,{b,{}}}, {}} }}) == {{a,{b,{}}}, {2, {1, {} }}}),
+  ?assert(stack:reverseS({{}, {2, {{a,{b,{}}}, {}} }}) == {{a,{b,{}}}, {2, {{}, {} }}}).
 
 reverseSNegative_test() ->
   ?assert(stack:reverseS({}) /= {1, {} }),

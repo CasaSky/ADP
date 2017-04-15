@@ -32,6 +32,8 @@ front(_) -> nil.
 
 %enqueue: queue x elem -> queue
 enqueue({InStack,OutStack},Elem) -> {stack:push(InStack,Elem),OutStack};
+%Achtung! Abstraktionsebene verletzt: Test Beispiel vom Prof. auf  {}
+enqueue({},Elem) -> {stack:push(stack:createS(),Elem),stack:createS()};
 enqueue(_,_) -> nil.
 
 %dequeue: queue -> queue
@@ -44,8 +46,12 @@ dequeue(_) -> nil.
 
 %isEmptyQ: queue -> bool
 isEmptyQ({InStack,OutStack}) -> stack:isEmptyS(InStack) and stack:isEmptyS(OutStack);
-isEmptyQ(_) -> false.
+%Achtung! Abstraktionsebene verletzt: Test Beispiel vom Prof auf  {}
+isEmptyQ({}) -> true;
+isEmptyQ(_) -> nil.
 
 %equalQ: queue x queue -> bool
 equalQ({InStack1,OutStack1},{InStack2,OutStack2}) -> stack:equalS(InStack1,InStack2) and stack:equalS(OutStack1,OutStack2);
+%Achtung! Abstraktionsebene verletzt: Test Beispiel vom Prof auf  {}
+equalQ({},{}) -> true;
 equalQ(_,_) -> nil.

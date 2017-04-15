@@ -27,7 +27,7 @@ enqueuePositive_test() ->
   ?assert(schlange:enqueue(schlange:createQ(), 1) == {{1, {} }, {} }),
   ?assert(schlange:enqueue({{2, {3, {} }}, {} }, 1) == {{1, {2, {3, {} }}}, {} }),
   ?assert(schlange:enqueue({{2, {3, {} }}, {1, {} }}, 1) == {{1, {2, {3, {} }}}, {1, {} }}),
-  ?assert(schlange:enqueue({}, a) == nil).
+  ?assert(schlange:enqueue({}, a) == {{a,{}},{}}).
 enqueueNegative_test() ->
   ?assert(schlange:enqueue(schlange:createQ(), 1) /= {{1, {} }, {1, {} } }),
   ?assert(schlange:enqueue({{2, {3, {} }}, {} }, 1) /= {{2, {3, {1, {} }}}, {} }).
@@ -62,9 +62,12 @@ isEmptyQNegative_test() ->
 
 %----------------------------------------------------------------------
 equalQPositive_test() ->
-  ?assert(schlange:equalQ({{99, {} }, {} }, {{99, {} }, {} }) == true).
+  ?assert(schlange:equalQ({{99, {} }, {} }, {{99, {} }, {} }) == true),
+  ?assert(schlange:equalQ({}, {}) == true),
+  ?assert(schlange:equalQ({{99, {10,{}} }, {} }, {{99, {10,{}} }, {} }) == true).
 
 equalQNegative_test() ->
-  ?assert(schlange:equalQ({{1, {99,{} }}, {} }, {{1, {100,{} }}, {} }) == false).
+  ?assert(schlange:equalQ({{1, {99,{} }}, {} }, {{1, {100,{} }}, {} }) == false),
+  ?assert(schlange:equalQ({{1, {99,{} }}, {} }, {{1, {} }, {99,{}} }) == false).
 
 %----------------------------------------------------------------------

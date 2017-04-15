@@ -50,6 +50,7 @@ equalNegative_test() ->
 
 %----------------------------------------------------------------------
 laengePositive_test() ->
+  ?assert(liste:laenge({1}) == nil),
   ?assert(liste:laenge({}) == 0),
   ?assert(liste:laenge({atom, {} }) == 1),
   ?assert(liste:laenge({1, {} }) == 1),
@@ -67,12 +68,23 @@ insertPositive_test() ->
   ?assert(liste:insert({}, 1, 1) == {1, {} }),
   ?assert(liste:insert({1, {2, {} }}, 1, 3) == {3, {1, {2, {} }}}),
   ?assert(liste:insert({1, {2, {} }}, 2, 3) == {1, {3, {2, {} }}}),
-  ?assert(liste:insert({1, {2, {} }}, 3, 3) == {1, {2, {3, {} }}}).
+  ?assert(liste:insert({1, {2, {} }}, 3, 3) == {1, {2, {3, {} }}}),
+  ?assert(liste:insert({1, {2, {} }}, 2, {a,{b,{}}}) == {1, {{a,{b,{}}}, {2, {} }}}).
 
 insertNegative_test() ->
   ?assert(liste:insert({}, 1, atom) /= {1, {} }),
   ?assert(liste:insert({}, 1, 1) /= {{}, 1 }),
   ?assert(liste:insert({1, {2, {} }}, 1, 3) /= {1, {2, {3, {} }}}).
+
+%----------------------------------------------------------------------
+deletePositive_test() ->
+  ?assert(liste:delete({1,{{a,{b,{}}},{3,{}}}}, 4) == {1,{{a,{b,{}}},{3,{}}}}),
+  ?assert(liste:delete({1,{{a,{b,{}}},{3,{}}}}, 0) == {1,{{a,{b,{}}},{3,{}}}}),
+  ?assert(liste:delete({1,{{a,{b,{}}},{3,{}}}}, 2) == {1,{3,{}}}),
+  ?assert(liste:delete({1,{{a,{b,{}}},{3,{}}}}, bla) == {1,{{a,{b,{}}},{3,{}}}}).
+
+deleteNegative_test() ->
+  ?assert(liste:delete({1,{{a,{b,{}}},{3,{}}}}, 4) /= {1,{{a,{b,{}}},{}}}).
 
 %----------------------------------------------------------------------
 findPositive_test() ->
