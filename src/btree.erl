@@ -1,6 +1,6 @@
 %%%-------------------------------------------------------------------
-%%% @author talal
-%%% @copyright (C) 2017, <COMPANY>
+%%% @author talal and michel
+%%% @copyright (C) 2017, <HAW>
 %%% @doc
 %%%
 %%% @end
@@ -18,12 +18,17 @@ initBT() -> {}.
 %isBT btree -> bool
 isBT(Btree) -> case (Btree==initBT()) of
                  true -> true;
-                 false ->{_,_,_,_} = Btree, isBT(Btree,200,0)
+                 false ->isBT_(Btree,200,0)
                end.
 
-isBT({_,1,{},{}},_,_) -> true;
-isBT({Elem,_,LBtree,RBtree},Max,Min) when (Elem<Max) and (Elem>Min) -> isBT(LBtree, Elem, Min) and isBT(RBtree,Max,Elem);
-isBT(_,_,_) -> false.
+isBT_({},_,_) -> true;
+isBT_({Elem,1,{},{}},Min,Max) when is_integer(Elem) and (Elem<Max) and (Elem>Min) -> true;
+isBT_({Elem,Hoehe,LBtree,RBtree},Max,Min) when is_integer(Elem) and (Elem<Max) and (Elem>Min) ->
+  case (Hoehe == maxHoehe(LBtree,RBtree) + 1) of
+      true ->  isBT_(LBtree,Elem,Min) and isBT_(RBtree,Max,Elem);
+      false -> false
+  end;
+isBT_(_,_,_) -> false.
 
 %insertBT: btree x elem -> btree
 insertBT({},Elem) -> {Elem,1,{},{}};
@@ -37,21 +42,23 @@ insertBT({KnotenElem,Hoehe,LBtree,{}}, Elem) -> {KnotenElem,Hoehe+1,insertBT(LBt
 
 insertBT({KnotenElem,Hoehe,LBtree,RBtree}, Elem) ->
   if KnotenElem > Elem -> NewLBtree = insertBT(LBtree,Elem), MaxHoehe = maxHoehe(NewLBtree,RBtree), {KnotenElem,MaxHoehe+1, NewLBtree, RBtree};
-    KnotenElem < Elem -> NewRBtree = insertBT(RBtree,Elem), MaxHoehe = maxHoehe(LBtree,NewRBtree), {KnotenElem,MaxHoehe+1, LBtree, insertBT(NewRBtree,Elem)};
+    KnotenElem < Elem -> NewRBtree = insertBT(RBtree,Elem), MaxHoehe = maxHoehe(LBtree,NewRBtree), {KnotenElem,MaxHoehe+1, LBtree, NewRBtree};
     true -> {KnotenElem,Hoehe,LBtree,RBtree}
   end.
 
+maxHoehe({},{}) -> 0;
+maxHoehe({_,Hoehe1,_,_},{}) -> Hoehe1;
+maxHoehe({},{_,Hoehe2,_,_}) -> Hoehe2;
 maxHoehe({_,Hoehe1,_,_},{_,Hoehe2,_,_}) -> if Hoehe1>Hoehe2-> Hoehe1;
                                              true -> Hoehe2
                                            end.
 
+
 %isEmptyBT: btree -> bool
-isEmptyBT(Btree) -> equalBT(Btree,{}).
+isEmptyBT(Btree) -> Btree == initBT().
 
 %equalBT: btree x btree -> bool
-equalBT(Btree1,Btree2) ->
-  case (isEmptyBT(Btree1) and not isEmptyBT(Btree2)) of
-    true -> false;
-    false -> {Elem1,Hoehe1,LBtree1,RBtree1} = Btree1, {Elem2,Hoehe2,LBtree2,RBtree2} = Btree2,
-      (Elem1==Elem2) and (Hoehe1==Hoehe2) and equalBT(LBtree1,LBtree2) and equalBT(RBtree1,RBtree2)
-  end.
+equalBT({},{}) -> true;
+equalBT({Elem1,Hoehe1,LBtree1,RBtree1},{Elem2,Hoehe2,LBtree2,RBtree2}) ->
+  (Elem1==Elem2) and (Hoehe1==Hoehe2) and equalBT(LBtree1,LBtree2) and equalBT(RBtree1,RBtree2);
+equalBT(_Btree1,_Btree2) -> false.
