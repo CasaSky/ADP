@@ -20,14 +20,10 @@ initBT() -> {}.
 
 %isBT btree -> bool
 isBT(Btree) -> isBT_(Btree,?MAX,?MIN).
-
 isBT_({},_,_) -> true;
 isBT_({Elem,1,{},{}},Max,Min) when is_integer(Elem) and (Elem<Max) and (Elem>Min) -> true;
 isBT_({Elem,Hoehe,LBtree,RBtree},Max,Min) when is_integer(Elem) and (Elem<Max) and (Elem>Min) ->
-  case (Hoehe == maxHoehe(LBtree,RBtree) + 1) of
-      true ->  isBT_(LBtree,Elem,Min) and isBT_(RBtree,Max,Elem);
-      false -> false
-  end;
+  (Hoehe == maxHoehe(LBtree,RBtree) + 1) and isBT_(LBtree,Elem,Min) and isBT_(RBtree,Max,Elem);
 isBT_(_,_,_) -> false.
 
 %insertBT: btree x elem -> btree
